@@ -1,5 +1,5 @@
 // time complexity: O(1) per query, O(mn) time pre-computation. 
-   The pre-computation in the constructor takes O(nm) time. 
+//   The pre-computation in the constructor takes O(nm) time. 
 // Space complexity: O(mn). The algorithm uses O(mn) to store the cumulative region sum.
  
 class NumMatrix {
@@ -19,9 +19,9 @@ class NumMatrix {
         
     }
     
+    //inclusive - exclusive. The opposite procss of constructing the cumulative region 
     public int sumRegion(int row1, int col1, int row2, int col2) {
         return preSum[row2 + 1][col2 + 1] - preSum[row2+1][col1] - preSum[row1][col2+1] + preSum[row1][col1];
-        //inclusive - exclusive 
     }
 }
 

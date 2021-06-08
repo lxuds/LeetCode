@@ -1,5 +1,5 @@
 // time complexity: O(n)
-// space complexity: O(n)
+// space complexity: O(1)
     public int minSubArrayLen(int target, int[] nums) {
         int left = 0;
         int minLen = Integer.MAX_VALUE;

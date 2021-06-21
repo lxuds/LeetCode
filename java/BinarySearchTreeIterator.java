@@ -59,4 +59,37 @@ class BSTIterator {
 
 
 // Approach 2: recursion
+// Time complexity: O(N)  is required to initiate the constructor for the iterator. 
+// next() takes O(1); hasNext() takes O(1)
+// Space complexity: O(N), since a new arraylist is created for the sorted nodes. 
+// Stack for the inorder traversal worst case is O(N), for a well balanced BST, the height is logN 
+
+class BSTIterator {
+    ArrayList<Integer> nodesSorted;
+    int index;
+    
+    public BSTIterator(TreeNode root) {
+        nodesSorted = new ArrayList<>();
+        index = -1;
+        inorder(root);
+    }
+
+    private void inorder(TreeNode root){
+        if (root == null){
+            return;
+        }
+        inorder(root.left);
+        nodesSorted.add(root.val);
+        inorder(root.right);
+    }
+    
+    public int next() {
+        index++;
+        return nodesSorted.get(index);
+    }
+    
+    public boolean hasNext() {
+        return index + 1 < nodesSorted.size();  
+    }
+}
 

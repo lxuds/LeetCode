@@ -27,6 +27,8 @@ class Solution {
 
 
 // Approach 2 BFS, iteration
+// Time complexity: O(n)
+// Space complexity: O(D) width of the tree?
 class Solution {
     public int maxDepth(TreeNode root) {
         if (root == null) {

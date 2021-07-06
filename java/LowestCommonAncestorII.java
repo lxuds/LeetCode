@@ -25,8 +25,14 @@ class Solution {
             return null;
         }
     }        
-        
+    // The code will traverse the whole tree, even after finding one node, since the assumption is the other node may be not in the tree.    
+    // The search will go down to the leaves. Any node found will be flagged as true. 
+    // If we find a node equal to p/q we keep propagating that node to upper levels too, until at some node, its left and right nodes are both not null.
+    // One special case,  suppose some node equals to p and a subtree that starts from p node also contains q. 
+    // The recursion will return back the result of node q first. And when recursion reaches p node, node p will be returned to upper levels of recursion, and keep propagating that node to upper levels. And node p will be the final node we are looking for. The result from line 39-40 will not be used at all in this case.  The node will be returned at line 43.
+
     public TreeNode dfs(TreeNode root, TreeNode p, TreeNode q){
+         // Exit of the recursion. 
         if (root == null){
             return root;
         }
